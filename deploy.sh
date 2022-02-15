@@ -11,8 +11,8 @@ fi
 echo "\033[0;32m[*]\033[0m msg here:-> \033[0;32m${msg}\033[0m"
 distPath="docs/.vuepress/dist"
 if [ -d "$distPath" ]; then
-    echo "\033[0;32m[*]\033[0m ${distPath} will be \033[0;32mdelete\033[0m"
     rm -rf  $distPath
+    echo "\033[0;32m[*]\033[0m ${distPath} had \033[0;32mdeleted\033[0m"
 fi
 
 # 生成静态文件
