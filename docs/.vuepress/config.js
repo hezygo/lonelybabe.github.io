@@ -13,7 +13,7 @@ module.exports = {
     nav: [
       { text: '首页', link: '/' },
       {
-        text: 'LittlePig\' Blogs',
+        text: 'LittlePig\'s Blogs',
         items: [
           { text: 'Github', link: 'https://github.com/hezygo' },
         ]
