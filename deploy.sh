@@ -9,8 +9,6 @@ if [ $# -eq 1 ]; then
 fi
 
 
-echo 
-
 # 生成静态文件
 npm run docs:build
 
@@ -31,3 +29,4 @@ git add .
 git commit -m $msg
 git push git@github.com:hezygo/lonelybabe.github.io.git master:gh-pages
 
+echo "[+]This commit with msg like -> ${msg}"

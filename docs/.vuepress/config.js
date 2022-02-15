@@ -31,7 +31,7 @@ module.exports = {
       {
         title: "Study",
         path: '/python/HelloWorld',
-        collapsable: false, // 不折叠
+        collapsable: true, // 不折叠
         children: [
           { title: "Hello World", path: "/python/HelloWorld" }
         ],
