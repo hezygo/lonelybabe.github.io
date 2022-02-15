@@ -29,4 +29,4 @@ git add .
 git commit -m $msg
 git push git@github.com:hezygo/lonelybabe.github.io.git master:gh-pages
 
-echo "[+]This commit with msg like -> ${msg}"
+echo "\033[0;32;40m[+]\033[0m This commit with msg like -> \033[0;32;40m[${msg}]\033[0m"
