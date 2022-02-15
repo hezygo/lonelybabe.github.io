@@ -9,7 +9,7 @@ if [ $# -eq 1 ]; then
 fi
 
 
-echo
+echo 
 
 # 生成静态文件
 npm run docs:build
@@ -29,6 +29,5 @@ cd -
 
 git add .
 git commit -m $msg
-git push -f git@github.com:hezygo/lonelybabe.github.io.git master:gh-pages
-
+git push git@github.com:hezygo/lonelybabe.github.io.git master:gh-pages
 

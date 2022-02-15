@@ -1,7 +1,7 @@
 module.exports = {
   title: 'LittlePig\'s Blogs',
   description: 'study day by day',
-  base: '//',
+  base: '/',
   theme: 'reco',
   locales: {
     '/': {
