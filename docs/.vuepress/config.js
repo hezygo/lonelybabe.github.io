@@ -35,6 +35,14 @@ module.exports = {
         children: [
           { title: "Hello World", path: "/python/HelloWorld" }
         ],
+      },
+      {
+        title: "Picture",
+        path: '/picture/TestFirstFastAPI',
+        collapsable: true, // 折叠
+        children: [
+          { title: "表情包", path: "/picture/TestFirstFastAPI" }
+        ],
       }
     ]
   }
