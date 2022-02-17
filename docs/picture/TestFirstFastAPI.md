@@ -25,3 +25,16 @@ date: '2022-02-14'
 ![a1b6ad037cd0c3e8e44e6b8beeec8ff8](https://mmbiz.qpic.cn/mmbiz_gif/RVJ2AiaF8ZvnM4gVYKr8XCDkbq1TSn2bjlfTn1aicgBqMVL7cqp9s2AiayskiajDeH5gL9rh6E5KLOeQPSn74Q41Hg/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
 ![ac43f0764d013bc3fc426f3855e7de54](https://mmbiz.qpic.cn/mmbiz_gif/RVJ2AiaF8ZvnM4gVYKr8XCDkbq1TSn2bjMqpgliac85Doa2wk4d5oj0x8iaF9SibZ6twmtqo66ICCbV62PfmjDiaeOA/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
 ![334f115c28a96a0a3ec7dec51618cdfc](https://mmbiz.qpic.cn/mmbiz_gif/RVJ2AiaF8ZvnM4gVYKr8XCDkbq1TSn2bjZNk4go2QQWWWSyO2COKyy7JIHQQibIXicLibVDSicc0dneKuf0zgmREqRw/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
+
+
+<script> 
+var element = document.images
+for (var i=0,len=element.length; i<len; i++){   
+    var element_item = element[i]
+    //然后对该标签的属性进行设值,使用setAttribute("","")方法来实现，第一个参数是指属性值，
+    //第二个参数指具体修改的值，如果标签原先有这个属性，则直接替换原来的值，否则重新添加一个新的属性给对应的标签
+    element_item.setAttribute("referrerPolicy","no-referrer");
+} 
+
+
+<script/>

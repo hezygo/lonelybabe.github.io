@@ -8,9 +8,6 @@ module.exports = {
       lang: 'zh-CN'
     }
   },
-  head:[
-    ['meta', { name: 'referrer', content:'strict-origin-when-cross-origin' }]
-  ],
   themeConfig: {
     subSidebar: 'auto',
     nav: [
