@@ -8,6 +8,9 @@ module.exports = {
       lang: 'zh-CN'
     }
   },
+  head:[
+    ['meta', { name: 'referrer', content:'no-referrer' }]
+  ],
   themeConfig: {
     subSidebar: 'auto',
     nav: [
