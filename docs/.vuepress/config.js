@@ -9,13 +9,9 @@ module.exports = {
     }
   },
   head: [
-    // [
-    //     'link', // 设置 favicon.ico，注意图片放在 public 文件夹下
-    //     { rel: 'icon', href: '/images/logo.png' }
-    // ],
     [
         'script', // js 文件
-        { src: '/js/wx_pic.js' }
+        {type: 'text/javascript', src: '/js/wx_pic.js' }
     ]
 ],
   themeConfig: {
