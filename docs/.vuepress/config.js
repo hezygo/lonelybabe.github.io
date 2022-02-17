@@ -9,6 +9,8 @@ module.exports = {
     }
   },
   themeConfig: {
+    search: true,
+    searchMaxSuggestions: 10,
     subSidebar: 'auto',
     nav: [
       { text: '首页', link: '/' },

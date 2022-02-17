@@ -3,6 +3,15 @@ title: 表情包
 author: 头像
 date: '2022-02-14'
 ---
+<script>
+var element = document.images;
+for (var i=0,len=element.length; i<len; i++){   
+    var element_item = element[i];
+    //然后对该标签的属性进行设值,使用setAttribute("","")方法来实现，第一个参数是指属性值，
+    //第二个参数指具体修改的值，如果标签原先有这个属性，则直接替换原来的值，否则重新添加一个新的属性给对应的标签
+    element_item.setAttribute("referrerPolicy","no-referrer");
+}
+</script>
 ![7a737559dd36ad56e09380af30c27917](https://mmbiz.qpic.cn/mmbiz_jpg/RVJ2AiaF8ZvnM4gVYKr8XCDkbq1TSn2bjZnbRQRLxJVSCYxnKfcnicluP1xkZVuKo2hV5okicH6m6F7vBWpgApQBg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
 ![f4e86d204750be7e23af0064622b77b4](https://mmbiz.qpic.cn/mmbiz_jpg/RVJ2AiaF8ZvnM4gVYKr8XCDkbq1TSn2bjzicBAIDzMrQWCicTicBqEQibPr51c71W6QnTvia6alNWSKp2pRUhia06pHlw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
 ![3729c544d7134ea75f666d27990b71e5](https://mmbiz.qpic.cn/mmbiz_jpg/RVJ2AiaF8ZvnM4gVYKr8XCDkbq1TSn2bj8x5X0KIeFvaxbY1EM0U7nAPEceh3Pw2vsqnNxCADsu6GHmhBicefywg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
@@ -27,14 +36,3 @@ date: '2022-02-14'
 ![334f115c28a96a0a3ec7dec51618cdfc](https://mmbiz.qpic.cn/mmbiz_gif/RVJ2AiaF8ZvnM4gVYKr8XCDkbq1TSn2bjZNk4go2QQWWWSyO2COKyy7JIHQQibIXicLibVDSicc0dneKuf0zgmREqRw/640?wx_fmt=gif&wxfrom=5&wx_lazy=1)
 
 
-<script> 
-var element = document.images
-for (var i=0,len=element.length; i<len; i++){   
-    var element_item = element[i]
-    //然后对该标签的属性进行设值,使用setAttribute("","")方法来实现，第一个参数是指属性值，
-    //第二个参数指具体修改的值，如果标签原先有这个属性，则直接替换原来的值，否则重新添加一个新的属性给对应的标签
-    element_item.setAttribute("referrerPolicy","no-referrer");
-} 
-
-
-<script/>
