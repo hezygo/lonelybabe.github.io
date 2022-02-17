@@ -8,5 +8,4 @@ setTimeout(function(){
         //第二个参数指具体修改的值，如果标签原先有这个属性，则直接替换原来的值，否则重新添加一个新的属性给对应的标签
         element_item.setAttribute("referrerPolicy","no-referrer");
     } 
-}, 2000);
-setTimeout()
+}, 5000);

@@ -46,10 +46,10 @@ module.exports = {
       },
       {
         title: "Picture",
-        path: '/picture/TestFirstFastAPI',
+        path: '/wxpic/TestFirstFastAPI',
         collapsable: true, // 折叠
         children: [
-          { title: "表情包", path: "/picture/TestFirstFastAPI" }
+          { title: "表情包", path: "/wxpic/TestFirstFastAPI" }
         ],
       }
     ]
