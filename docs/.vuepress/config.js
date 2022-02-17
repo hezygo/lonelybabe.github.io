@@ -9,7 +9,7 @@ module.exports = {
     }
   },
   head:[
-    ['meta', { name: 'referrer', content:'no-referrer' }]
+    ['meta', { name: 'referrer', content:'strict-origin-when-cross-origin' }]
   ],
   themeConfig: {
     subSidebar: 'auto',
