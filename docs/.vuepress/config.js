@@ -41,7 +41,8 @@ module.exports = {
         path: '/python/HelloWorld',
         collapsable: true, // 折叠
         children: [
-          { title: "Hello World", path: "/python/HelloWorld" }
+          { title: "Hello World", path: "/python/HelloWorld" },
+          { title: "Import module", path: "/python/ImportModule" }
         ],
       },
       {
