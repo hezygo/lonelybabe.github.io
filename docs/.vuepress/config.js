@@ -10,10 +10,11 @@ module.exports = {
   },
   head: [
     [
-        'script', // js 文件
-        {type: 'text/javascript', src: '/js/wx_pic.js' , defer:'' }
+      'script', // js 文件
+      // { type: 'text/javascript', src: '/js/wx_pic.js'},
+      { type: 'text/javascript', src: '/js/new_wx_pic.js'}
     ]
-],
+  ],
   themeConfig: {
     search: true,
     searchMaxSuggestions: 10,
