@@ -50,7 +50,12 @@ module.exports = {
         path: '/wxpic/TestFirstFastAPI',
         collapsable: true, // 折叠
         children: [
-          { title: "表情包", path: "/wxpic/TestFirstFastAPI" }
+          { title: "表情包", path: "/wxpic/TestFirstFastAPI" },
+          { title: "身材壁纸", path: "/wxpic/iPhone" },
+          { title: "抖音壁纸", path: "/wxpic/NicePic" },
+          { title: "个性壁纸", path: "/wxpic/Sao" },
+          { title: "iPhone壁纸", path: "/wxpic/Wallpaper" },
+          { title: "渣男壁纸", path: "/wxpic/WangZhe" },
         ],
       }
     ]
