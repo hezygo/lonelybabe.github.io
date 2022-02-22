@@ -1,6 +1,6 @@
 
 
-setTimeout(function(){
+// setTimeout(function(){
     var element = document.images
     for (var i=0,len=element.length; i<len; i++){   
         var element_item = element[i]
@@ -8,4 +8,4 @@ setTimeout(function(){
         //第二个参数指具体修改的值，如果标签原先有这个属性，则直接替换原来的值，否则重新添加一个新的属性给对应的标签
         element_item.setAttribute("referrerPolicy","no-referrer");
     } 
-}, 5000);
+// }, 5000);
