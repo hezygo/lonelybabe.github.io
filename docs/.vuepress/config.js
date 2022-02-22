@@ -14,13 +14,11 @@ module.exports = {
     //   // { type: 'text/javascript', src: '/js/wx_pic.js'},
     // //   { type: 'text/javascript', src: '/js/new_wx_pic.js'}
     // // ]
-    ['script', {}, `
-        var _hmt = _hmt || []; 
+    ['script', {id: "scriptImporter"}, `
         (function() { 
-        var hm = document.createElement("script"); 
-        rc = "/js/wx_pic.js"; 
-        var s = document.getElementsByTagName("script")[0]; 
-        s.parentNode.insertBefore(hm, s); 
+        var script = document.createElement("script"); 
+        script.src = "/js/wx_pic.js";
+        setTimeout(() => document.body.append(script))
         })(); 
     `]
   ],
