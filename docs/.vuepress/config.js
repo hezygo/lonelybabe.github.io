@@ -8,20 +8,6 @@ module.exports = {
       lang: 'zh-CN'
     }
   },
-  head: [
-    // // [
-    // //   'script', // js 文件
-    //   // { type: 'text/javascript', src: '/js/wx_pic.js'},
-    // //   { type: 'text/javascript', src: '/js/new_wx_pic.js'}
-    // // ]
-    ['script', {id: "scriptImporter"}, `
-        (function() { 
-        var script = document.createElement("script"); 
-        script.src = "/js/wx_pic.js";
-        setTimeout(() => document.body.append(script))
-        })(); 
-    `]
-  ],
   themeConfig: {
     search: true,
     searchMaxSuggestions: 10,
@@ -67,5 +53,38 @@ module.exports = {
         ],
       }
     ]
+  },
+  plugins: [
+    ["vuepress-plugin-nuggets-style-copy", {
+      copyText: "复制代码",
+      tip: {
+        content: "复制成功"
+      }
+    }]
+  ],
+  markdown: {
+    // 用来解决 标签问题
+    extendMarkdown: md => {
+      // Remember old renderer, if overridden, or proxy to default renderer
+      var defaultRender = md.renderer.rules.image || function (tokens, idx, options, env, self) {
+        return self.renderToken(tokens, idx, options);
+      };
+
+      md.renderer.rules.image = function (tokens, idx, options, env, self) {
+        // If you are sure other plugins can't add `target` - drop check below
+        var aIndex = tokens[idx].attrIndex('referrerPolicy');
+
+        if (aIndex < 0) {
+          tokens[idx].attrPush(['referrerPolicy', 'no-referrer']); // add new attribute
+        } else {
+          tokens[idx].attrs[aIndex][1] = 'no-referrer';    // replace value of existing attr
+        }
+
+        // pass token to default renderer.
+        return defaultRender(tokens, idx, options, env, self);
+      };
+    }
   }
-}
+};
+
+
