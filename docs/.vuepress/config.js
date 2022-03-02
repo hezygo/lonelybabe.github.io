@@ -50,7 +50,8 @@ module.exports = {
           { title: "个性壁纸", path: "/wxpic/Sao" },
           { title: "iPhone壁纸", path: "/wxpic/Wallpaper" },
           { title: "渣男壁纸", path: "/wxpic/WangZhe" },
-	  { title: "不一样的表情包", path: "/wxpic/reserv"}
+	  { title: "不一样的表情包", path: "/wxpic/reserv"},
+	  { title: "情侣头像", path:"/wxpic/Friend"}
         ],
       }
     ]
