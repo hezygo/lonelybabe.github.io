@@ -300,8 +300,10 @@ pip install pyyaml
 YAMLObject 的任意子类支持序列化和反序列化（serialization & deserialization）。比如说下面这段代码： 
 ``` python
 import yaml         
-class Monster(yaml.YAMLObject): 
+class Monster(yaml.YAMLObject):  
+    
     yaml_tag = '!Monster' 
+    
     def __init__(self, name, hp, ac, attacks):
         self.name = name
         self.hp = hp
@@ -360,6 +362,7 @@ add_constructor(Monster)
 ​		 更优雅的实现方式自然是通过metaclass 解决了这个问题，YAML 的源码正是这样实现的： 
 ``` python
 class YAMLObjectMetaclass(type):
+    
     def __init__(cls, name, bases, kwds):
         super(YAMLObjectMetaclass, cls).__init__(name, bases, kwds)
         if 'yaml_tag' in kwds and kwds['yaml_tag'] is not None:   
