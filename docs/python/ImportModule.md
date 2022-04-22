@@ -24,3 +24,11 @@ father_path=os.path.abspath(os.path.dirname(__file__)+os.path.sep+"..")
 sys.path.append(father_path)
 # 然后导入需要的模块
 ```
+
+## 工作区修改，使脚本能够正确引用资源
+```python
+import os
+from pathlib import Path
+current_folder = Path(__file__).absolute().parent
+os.chdir(str(current_folder))
+```
