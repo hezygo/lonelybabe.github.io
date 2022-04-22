@@ -103,7 +103,8 @@ class Foo(Bar):
 *   如果Python在任何父类中都找不到\_\_metaclass\_\_，它就会在模块层次中去寻找\_\_metaclass\_\_，并尝试做同样的操作。
 *   如果还是找不到\_\_metaclass\_\_，Python就会用内置的type来创建这个类对象。     假想一个很傻的例子，你决定在你的模块里所有的类的属性都应该是大写形式。有好几种方法可以办到，但其中一种就是通过在模块级别设定\_\_metaclass\_\_： 
 ```python 
-class UpperAttrMetaClass(type):     
+class UpperAttrMetaClass(type): 
+
     ## __new__ 是在__init__之前被调用的特殊方法     
     ## __new__是用来创建对象并返回之的方法     
     ## 而__init__只是用来将传入的参数初始化给对象     
@@ -111,6 +112,7 @@ class UpperAttrMetaClass(type):
     ## 这里，创建的对象是类，我们希望能够自定义它，所以我们这里改写__new__     
     ## 如果你希望的话，你也可以在__init__中做些事情     
     ## 还有一些高级的用法会涉及到改写__call__特殊方法，但是我们这里不用     
+    
     def __new__(cls, future_class_name, future_class_parents, future_class_attr):       	
         ##遍历属性字典，把不是__开头的属性名字变为大写       
         newAttr = {}       
@@ -208,6 +210,7 @@ class ModelMetaclass(type):
 以及基类Model： 
 ```python
 class Model(dict, metaclass=ModelMetaclass):
+
     def __init__(self, **kw):
         super(Model, self).__init__(**kw) 
         
@@ -243,7 +246,8 @@ class Model(dict, metaclass=ModelMetaclass):
 测试： 
 
 ```python
-u = User(id=12345, name='xiaoxiaoming', email='test@orm.org', password='my-pwd')   u.save()    
+u = User(id=12345, name='xiaoxiaoming', email='test@orm.org', password='my-pwd')
+u.save()    
 ```
 输出如下： 
 ```shell
@@ -265,7 +269,7 @@ class Blog(Model):
     name = StringField('user_name')
     summary = StringField('summary')
     content = StringField('content') 
-b = Blog(id=12345, user_id='user_id1', user_name='xxm', name='orm框架的基本运行机制', summary="简单讲述一下orm框架的基本运行机制",        content="此处省略一万字...")
+b = Blog(id=12345, user_id='user_id1', user_name='xxm', name='orm框架的基本运行机制', summary="简单讲述一下orm框架的基本运行机制",content="此处省略一万字...")
 b.save()    
 ```
 输出： 
