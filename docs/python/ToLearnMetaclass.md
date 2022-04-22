@@ -10,7 +10,7 @@ date: ' 2022-04-22'
 
 # 改变类定义的神器 Metaclass   
 
-###### 		看到标题，你可能会想改变类的定义有什么用呢？什么时候才需要使用metaclass呢？ 今天我将带大家设计一个简单的orm框架，并简单剖析一下YAML这个序列化工具的原理.
+看到标题，你可能会想改变类的定义有什么用呢？什么时候才需要使用metaclass呢？ 今天我将带大家设计一个简单的orm框架，并简单剖析一下YAML这个序列化工具的原理.
 
 
 Python类的上帝-type
@@ -120,7 +120,8 @@ class UpperAttrMetaClass(type):
        	## 方法1：通过'type'来做类对象的创建       
         ## return type(future_class_name, future_class_parents, newAttr)          
         ## 方法2：复用type.__new__方法，这就是基本的OOP编程       
-        ## return type.__new__(cls, future_class_name, future_class_parents, newAttr)             ## 方法3：使用super方法       
+        ## return type.__new__(cls, future_class_name, future_class_parents, newAttr)  
+        ## 方法3：使用super方法       
         return super(UpperAttrMetaClass, cls).__new__(cls, future_class_name, future_class_parents, newAttr) 
    
 class Foo(object, metaclass = UpperAttrMetaClass):  
@@ -246,15 +247,38 @@ u = User(id=12345, name='xiaoxiaoming', email='test@orm.org', password='my-pwd')
 ```
 输出如下： 
 ```shell
-Found model: User   Found mapping: id ==> <IntegerField:id>   Found mapping: name ==> <StringField:username>   Found mapping: email ==> <StringField:email>   Found mapping: password ==> <StringField:password>   SQL: insert into User (id,username,email,password) values (?,?,?,?)   ARGS: [12345, 'xiaoxiaoming', 'test@orm.org', 'my-pwd']    
+Found model: User   
+Found mapping: id ==> <IntegerField:id>
+Found mapping: name ==> <StringField:username>
+Found mapping: email ==> <StringField:email>
+Found mapping: password ==> <StringField:password>
+SQL: insert into User (id,username,email,password) values (?,?,?,?)
+ARGS: [12345, 'xiaoxiaoming', 'test@orm.org', 'my-pwd']    
 ```
 测试2：
 ```python
-class Blog(Model):     __table__ = 'blogs'     id = IntegerField('id')     user_id = StringField('user_id')     user_name = StringField('user_name')     name = StringField('user_name')     summary = StringField('summary')     content = StringField('content')         b = Blog(id=12345, user_id='user_id1', user_name='xxm', name='orm框架的基本运行机制', summary="简单讲述一下orm框架的基本运行机制",        content="此处省略一万字...")   b.save()    
+class Blog(Model):
+    __table__ = 'blogs'
+    id = IntegerField('id') 
+    user_id = StringField('user_id')
+    user_name = StringField('user_name') 
+    name = StringField('user_name')
+    summary = StringField('summary')
+    content = StringField('content') 
+b = Blog(id=12345, user_id='user_id1', user_name='xxm', name='orm框架的基本运行机制', summary="简单讲述一下orm框架的基本运行机制",        content="此处省略一万字...")
+b.save()    
 ```
 输出： 
 ```shell
-Found model: Blog   Found mapping: id ==> <IntegerField:id>   Found mapping: user_id ==> <StringField:user_id>   Found mapping: user_name ==> <StringField:user_name>   Found mapping: name ==> <StringField:user_name>   Found mapping: summary ==> <StringField:summary>   Found mapping: content ==> <StringField:content>   SQL: insert into blogs (id,user_id,user_name,user_name,summary,content) values (?,?,?,?,?,?)   ARGS: [12345, 'user_id1', 'xxm', 'orm框架的基本运行机制', '简单讲述一下orm框架的基本运行机制', '此处省略一万字...']    
+Found model: Blog
+Found mapping: id ==> <IntegerField:id>
+Found mapping: user_id ==> <StringField:user_id> 
+Found mapping: user_name ==> <StringField:user_name> 
+Found mapping: name ==> <StringField:user_name>
+Found mapping: summary ==> <StringField:summary>
+Found mapping: content ==> <StringField:content> 
+SQL: insert into blogs (id,user_id,user_name,user_name,summary,content) values (?,?,?,?,?,?) 
+ARGS: [12345, 'user_id1', 'xxm', 'orm框架的基本运行机制', '简单讲述一下orm框架的基本运行机制', '此处省略一万字...']    
 ```
 可以看到，`save()`方法已经打印出了可执行的SQL语句，以及参数列表，只需要真正连接到数据库，执行该SQL语句，就可以完成真正的功能。 
 
@@ -265,6 +289,7 @@ YAML是一个家喻户晓的 Python 工具，可以方便地序列化 / 逆序�
 
 官方文档：https://pyyaml.org/wiki/PyYAMLDocumentation 
 安装： 
+
 ```shell
 pip install pyyaml
 ```
@@ -345,7 +370,8 @@ class YAMLObject(metaclass=YAMLObjectMetaclass):
 ```
  可以看到，YAMLObject 把 metaclass 声明成了 YAMLObjectMetaclass，YAMLObjectMetaclass则会改变YAMLObject类和其子类的定义，就是下面这行代码将YAMLObject 的子类加入到了yaml的两个全局注册表中： 
 ```python
-cls.yaml_loader.add_constructor(cls.yaml_tag, cls.from_yaml)   cls.yaml_dumper.add_representer(cls, cls.to_yaml)    
+cls.yaml_loader.add_constructor(cls.yaml_tag, cls.from_yaml)
+cls.yaml_dumper.add_representer(cls, cls.to_yaml)    
 ```
 YAML 应用 metaclass，拦截了所有 YAMLObject 子类的定义。也就是说，在你定义任何 YAMLObject 子类时，Python 会强行插入运行上面这段代码，把我们之前想要的`add_constructor(Foo)`和`add_representer(Foo)`给自动加上。所以 YAML 的使用者，无需自己去手写`add_constructor(Foo)`和`add_representer(Foo)`。 
 
