@@ -8,6 +8,7 @@ module.exports = {
       lang: 'zh-CN'
     }
   },
+
   themeConfig: {
     search: true,
     searchMaxSuggestions: 10,
@@ -51,8 +52,8 @@ module.exports = {
           { title: "个性壁纸", path: "/wxpic/Sao" },
           { title: "iPhone壁纸", path: "/wxpic/Wallpaper" },
           { title: "渣男壁纸", path: "/wxpic/WangZhe" },
-	  { title: "不一样的表情包", path: "/wxpic/reserv"},
-	  { title: "情侣头像", path:"/wxpic/Friend"}
+          { title: "不一样的表情包", path: "/wxpic/reserv"},
+          { title: "情侣头像", path:"/wxpic/Friend"}
         ],
       }
     ]
@@ -63,7 +64,13 @@ module.exports = {
       tip: {
         content: "复制成功"
       }
-    }]
+    }],
+    ['vuepress-plugin-copyright',{
+        authorName: 'TheBoy', // 选中的文字将无法被复制
+        minLength: 30, // 如果长度超过  30 个字符
+      },
+    ],
+  
   ],
   markdown: {
     // 用来解决 标签问题
