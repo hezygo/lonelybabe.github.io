@@ -6,18 +6,18 @@
 <script>
 const commentConfig = {
         // process.env.VUE_APP_BASE_URL,
-        clientID: '', 
-        clientSecret: '',
-        repo: '评论仓',
-        owner: '',
+        clientID: '50ded5d51f31164d09dc', 
+        clientSecret: '54a404651cb250e13e0f6170f8641d63cf317600',
+        repo: 'blog-comment',
+        owner: 'hezygo',
         // 这里接受一个数组，可以添加多个管理员，可以是你自己
-        admin: [''],
+        admin: ['hezygo'],
         // id 用于当前页面的唯一标识，一般来讲 pathname 足够了，
         // 但是如果你的 pathname 超过 50 个字符，GitHub 将不会成功创建 issue，此情况可以考虑给每个页面生成 hash 值的方法.
         id: location.pathname,
         distractionFreeMode: false,
       };
-console.log(process.env.VUE_APP_CLIENTID);
+// console.log(process.env.VUE_APP_CLIENTID);
 export default {
   name: 'comment',
   data() {

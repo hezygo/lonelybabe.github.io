@@ -10,6 +10,7 @@
     "vuepress-plugin-nuggets-style-copy": "^1.0.3"
   },
   "scripts": {
+    "build": "node ./builds/addComponents.js && vuepress dev docs && node ./builds/delComponents.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
