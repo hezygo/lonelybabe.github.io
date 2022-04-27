@@ -1,0 +1,37 @@
+---
+title: Python中导入模块的处理方法
+categories:
+ - python
+tags:
+ - module
+date: '2022-02-16'
+---
+
+# 关于Python中导入模块的处理方法
+
+## 利用importlib导入 
+```python
+import importlib
+
+# 用户表的路径
+USER_MODEL_DIR = "autoApp.models.UserInfo"
+
+*user_dir, model_name = USER_MODEL_DIR.split(".")
+user = importlib.import_module(".".join(user_dir))
+```
+
+## 父子目录的问题
+```python
+import os,sys
+father_path=os.path.abspath(os.path.dirname(__file__)+os.path.sep+"..")
+sys.path.append(father_path)
+# 然后导入需要的模块
+```
+
+## 工作区修改，使脚本能够正确引用资源
+```python
+import os
+from pathlib import Path
+current_folder = Path(__file__).absolute().parent
+os.chdir(str(current_folder))
+```
