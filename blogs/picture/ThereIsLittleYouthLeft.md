@@ -1,5 +1,9 @@
 ---
 title: 手机壁纸 | 青春已所剩不多
+categories:
+ - picture
+tags:
+ - wx
 author: 壁纸舍
 date: '2022-04-29'
 ---
