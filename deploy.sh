@@ -31,6 +31,10 @@ git push -f git@github.com:hezygo/lonelybabe.github.io.git master:main
 
 cd -
 
+if [ -d "$distPath" ]; then
+    rm -rf  $distPath
+    echo "\033[0;32m[*]\033[0m ${distPath} had \033[0;32mdeleted\033[0m"
+fi
 git add .
 git commit -m "${msg}"
 git push orgin
