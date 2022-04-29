@@ -10,5 +10,10 @@
     "vuepress": "1.8.2",
     "vuepress-theme-reco": "1.6.10"
   },
-  "description": "learn python in favorite"
+  "description": "learn python in favorite",
+  "dependencies": {
+    "@vuepress-reco/vuepress-plugin-kan-ban-niang": "github:vuepress-reco/vuepress-plugin-kan-ban-niang",
+    "vuepress-plugin-meting": "^0.3.1",
+    "vuepress-plugin-nuggets-style-copy": "^1.0.3"
+  }
 }

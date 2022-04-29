@@ -20,7 +20,7 @@ module.exports = {
   ],
   "theme": "reco",
   "themeConfig": {
-    
+
     "nav": [
       {
         "text": "Home",
@@ -97,6 +97,36 @@ module.exports = {
     "startYear": "2022",
 
   },
+  'plugins': [
+    [
+      "vuepress-plugin-nuggets-style-copy",
+      {
+        'copyText': "复制代码",
+        'tip': {
+          'content': "复制成功"
+        }
+      }
+    ],
+    [
+      '@vuepress-reco/vuepress-plugin-kan-ban-niang',
+      {
+        'theme': ['blackCat', 'whiteCat', 'haru1', 'haru2', 'haruto', 'koharu', 'izumi', 'shizuku', 'wanko', 'miku', 'z16'],
+      }
+    ],
+    [
+      'meting',
+      {
+         // 这个 API 是不可用的，只是作为示例而已
+        // 'metingApi': 'https://meting.example.com/api/',
+        'meting': {
+          'auto': 'https://music.163.com/#/playlist?id=5407105315'
+        }, // 不配置该项的话不会出现全局播放器
+         'aplayer': {
+            'lrcType': 3,
+         },
+      },
+   ]
+  ],
   "markdown": {
     "lineNumbers": true,
     // 用来解决 标签问题
