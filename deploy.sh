@@ -44,4 +44,4 @@ git add .
 git commit -m "${msg}"
 git push orgin
 
-echo "\033[0;32m[+]\033[0m This commit with msg like -> \033[0;32m${msg}\033[0m"
+echo "\033[0;32m[+]\033[0m Push to master:master and this commit with msg like -> \033[0;32m${msg}\033[0m"
