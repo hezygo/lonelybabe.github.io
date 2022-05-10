@@ -29,6 +29,7 @@ git commit -m "${msg}"
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
 git push -f git@github.com:hezygo/lonelybabe.github.io.git master:main
+echo "\033[0;32m[+]\033[0m Push to master:main with msg -> \033[0;32m${msg}\033[0m"
 
 cd -
 echo 'out from public'
